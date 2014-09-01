@@ -1,11 +1,6 @@
 %span
   Server Status:
-- if true
-  %span
-    Running
-- else
-  %span
-    Stopped
+%span#status
       
 
 .buttons
@@ -13,6 +8,12 @@
   %button.stop-button Stop
 
 :javascript
+  var update_status = function() {
+    $.ajax("/server/status.json",
+      {complete: function(response){ $('#status').text(response.responseJSON ? "Server running" : "Server stopped") }}
+    );};
+  update_status();
+
   var disable = function(jqueryObject){
     jqueryObject.attr("disabled", "disabled")
   }
