@@ -25,12 +25,12 @@
     disable($('.start-button'));
     enable($('.stop-button'));
     $.ajax("/server/start.json",
-      {complete: function(){ alert('Server started') }});
+      {complete: function(response){ alert(response.'Server started'); update_status(); }});
   });
 
   $('.stop-button').click(function(){
     disable($('.stop-button'));
     enable($('.start-button'));
     $.ajax("/server/stop.json",
-      {complete: function(){ alert('Server stopped') }});
+      {complete: function(response){ alert('Server stopped'); update_status(); }});
   });

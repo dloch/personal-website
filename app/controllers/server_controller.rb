@@ -3,18 +3,18 @@ class ServerController < ApplicationController
   end
 
   def start
-    `/home/shared/start_server.sh`
+    result = `/home/shared/start_server.sh`
     respond_to do |format|
       format.html{render nothing: true}
-      format.json{render nothing: true}
+      format.json{render json: [result]}
     end
   end
 
   def stop
-    `/home/shared/stop_server.sh`
+    result = `/home/shared/stop_server.sh`
     respond_to do |format|
       format.html{render nothing: true}
-      format.json{render nothing: true}
+      format.json{render json: [result]}
     end
   end
 
