@@ -8,7 +8,7 @@
   %button.stop-button Stop
 
 :javascript
-  function(){
+  var init_server_status = function(){
     var update_status = function() {
       $.ajax("/server/status.json",
         {complete: function(response){ $('#status').text(response.responseJSON ? "Server running" : "Server stopped") }}
@@ -40,4 +40,7 @@
     $('.stop-button').click(function(){
       clickFunction('start-button', 'stop-button', "#{server_stop_path :format => "json"}");
     });
-  }();
+  };
+
+  init_server_status();
+  init_server_status = null;

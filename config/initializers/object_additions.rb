@@ -4,3 +4,9 @@ class String
     return false if self == false || self.blank? || self =~ (/^(false|f|no|n|0)$/)
   end
 end
+
+class NilClass
+  def to_bool
+    return false
+  end
+end
