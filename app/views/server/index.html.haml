@@ -28,17 +28,17 @@
       };
 
     var clickFunction = function(enableButton, disableButton, json){
-        disable(disableButton);
-        enable(enableButton);
+        disable($(disableButton));
+        enable($(enableButton));
         $.ajax(json, {complete: complete})
       }
 
     $('.start-button').click(function(){
-      clickFunction('.stop-button', 'start-button', "#{server_start_path :format => "json"}");
+      clickFunction('.stop-button', '.start-button', "#{server_start_path :format => "json"}");
     });
 
     $('.stop-button').click(function(){
-      clickFunction('start-button', 'stop-button', "#{server_stop_path :format => "json"}");
+      clickFunction('.start-button', '.stop-button', "#{server_stop_path :format => "json"}");
     });
   };
 
