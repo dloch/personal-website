@@ -33,7 +33,11 @@ gem 'pundit'
 
 gem 'web-app-theme'
 
-gem 'raptor-editor-rails'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'font-awesome-rails'
+gem 'adminlte-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

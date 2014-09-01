@@ -1,0 +1,35 @@
+%span
+  Server Status:
+- if true
+  %span
+    Running
+- else
+  %span
+    Stopped
+      
+
+.buttons
+  %button.start-button Start
+  %button.stop-button Stop
+
+:javascript
+  var disable = function(jqueryObject){
+    jqueryObject.attr("disabled", "disabled")
+  }
+  var enable = function(jqueryObject){
+    jqueryObject.removeAttr("disabled")
+  }
+
+  $('.start-button').click(function(){
+    disable($('.start-button'));
+    enable($('.stop-button'));
+    $.ajax("/server/start.json",
+      {complete: function(){ alert('Server started') }});
+  });
+
+  $('.stop-button').click(function(){
+    disable($('.stop-button'));
+    enable($('.start-button'));
+    $.ajax("/server/stop.json",
+      {complete: function(){ alert('Server stopped') }});
+  });

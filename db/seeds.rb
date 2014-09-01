@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+UserRole.first_or_create({name: "owner", rank: 0})
+UserRole.first_or_create({name: "admin", rank: 1})
+UserRole.first_or_create({name: "user", rank: 2})
