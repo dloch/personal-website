@@ -15,4 +15,6 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require admin-lte
+//= require d3
+//= require graphs/bilevel
 //= require_tree .

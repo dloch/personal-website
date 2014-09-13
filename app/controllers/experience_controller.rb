@@ -5,9 +5,8 @@ class ExperienceController < ApplicationController
       format.html {render nothing: true}
       format.json do
         experience = Experience.roots 
-        experience.map{|exp| [exp.name, exp.children.map{|child| {name: child.name, value: child.value}}]}
-        Rails.logger.error experience.inspect
-        return render(json: experience)
+        experience = experience.map{|exp| {name: exp.name, children: exp.children.map{|child| {name: child.name, size: child.value}}}}
+        return render(json: {name: "experience", children: experience})
       end
     end
   end
