@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/server/start', to: 'server#start'
   get '/server/stop', to: 'server#stop'
   get '/server/status', to: 'server#status'
+
+  get '/experience', to: 'experience#get_experience'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
